@@ -57,7 +57,7 @@
         return this.each(function(){
             jQuery.getJSON(url,function(data) {
               if(settings.mode == "list") {
-                var listObj = jQuery('<ul />',{class:"jcorg-yt-list"}).appendTo(parentElement); 
+                var listObj = jQuery('<ul />',{'class':"jcorg-yt-list"}).appendTo(parentElement); 
                 if(data.feed.entry != undefined) {
                   for (var i = 0; i < data.feed.entry.length; i++) {
                        var entry = data.feed.entry[i];
@@ -70,7 +70,7 @@
                        var vidViews=    (entry && entry.yt$statistics ? entry.yt$statistics.viewCount : 0);
                        
                        if(settings.showTitle)
-                        jQuery("<li/>",{class:"jcorg-yt-list-title"}).html(vidTitle).appendTo(listObj);                       
+                        jQuery("<li/>",{'class':"jcorg-yt-list-title"}).html(vidTitle).appendTo(listObj);                       
 
                        if(settings.useIncl == 'frame') {
                           if ( vidID.substr(0,38) == 'http://gdata.youtube.com/feeds/videos/' ) vidLink = 'http://www.youtube.com/embed/' + vidID.substr(38); 
@@ -87,13 +87,13 @@
                                     '<embed src="'+vidLink+'?hl=en&fs=1&autoplay='+autoplay+'" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="'+allowfullscreen+'" width="'+settings.videoWidth+'" height="'+(parseInt(settings.videoWidth/1.78))+'"></embed>' + 
                                     '</object>';
                        }             
-                       jQuery("<li/>",{class:"jcorg-yt-list-video"}).html(ytObject).appendTo(listObj);                   
+                       jQuery("<li/>",{'class':"jcorg-yt-list-video"}).html(ytObject).appendTo(listObj);                   
                     };
                 }
               }
               else if(settings.mode == "thumbnails") {
-                var listObj = jQuery('<div />',{class:"jcorg-yt-default-play"}).appendTo(parentElement); 
-                var listObj = jQuery('<ul />',{class:"jcorg-yt-thumbnails clearfix"}).appendTo(parentElement); 
+                var listObj = jQuery('<div />',{'class':"jcorg-yt-default-play"}).appendTo(parentElement); 
+                var listObj = jQuery('<ul />',{'class':"jcorg-yt-thumbnails clearfix"}).appendTo(parentElement); 
                 var vidArray = [];
                 if(data.feed.entry != undefined) {
                   for (var i = 0; i < data.feed.entry.length; i++) {
