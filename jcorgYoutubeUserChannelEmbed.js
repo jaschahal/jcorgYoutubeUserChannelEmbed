@@ -45,7 +45,7 @@
         else if(settings.format == 'mobileMP4') 
             youtubeParams.push("format=3");
         if(settings.filterKeyword.length > 0)
-            youtubeParams.push("q="+filterKeyword);
+            youtubeParams.push("q="+settings.filterKeyword);
         // HD
         if(settings.onlyHD) 
             youtubeParams.push("hd=true"); 
