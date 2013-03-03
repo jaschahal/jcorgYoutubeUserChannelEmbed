@@ -24,6 +24,7 @@
           orderBy:'published', // relevance | published | viewCount | rating
           filterKeyword:'', // just in case you want to filter videos by keyword in a channel being embedded
           channelUserName:'jassiechahal',
+          thumbQuality:1, // 0,1,2 high, medium, low
           onlyHD:false,
           allowFullScreen:true,
           format:'embed', // embed | mobileH263 | mobileMP4
@@ -65,7 +66,7 @@
                        var vidCategory= (entry ? entry.media$group.media$category[0].label : '');
                        var vidLink=    (entry ? entry.media$group.media$player[0].url : '');
                        var vidTitle=    (entry ? entry.media$group.media$title.$t : '');
-                       var vidThumb=    (entry ? entry.media$group.media$thumbnail[1].url : '');
+                       var vidThumb=    (entry ? entry.media$group.media$thumbnail[settings.thumbQuality].url : '');
                        var vidDuration= (entry ? entry.media$group.yt$duration.seconds : 0);
                        var vidViews=    (entry && entry.yt$statistics ? entry.yt$statistics.viewCount : 0);
                        
@@ -103,7 +104,7 @@
                        vidCategory= (entry ? entry.media$group.media$category[0].label : '');
                        vidLink=    (entry ? entry.media$group.media$player[0].url : '');
                        vidTitle=    (entry ? entry.media$group.media$title.$t : '');
-                       vidThumb=    (entry ? entry.media$group.media$thumbnail[1].url : '');
+                       vidThumb=    (entry ? entry.media$group.media$thumbnail[settings.thumbQuality].url : '');
                        vidDuration= (entry ? entry.media$group.yt$duration.seconds : 0);
                        vidViews=    (entry && entry.yt$statistics ? entry.yt$statistics.viewCount : 0);
                        vid = '<a href="'+vidLink+'" rel="prettyPhoto[gallery]" title="'+vidTitle+'" class="jcorg-yt-thumbnail"><img src="'+vidThumb+'" alt="'+vidTitle+'" width="'+settings.thumbnailWidth+'" height="'+(parseInt(settings.thumbnailWidth/1.34))+'" /></a>'; 
